@@ -1,3 +1,5 @@
+console.log('------- starting ------')
+
 // Get dependencies
 const express = require('express');
 const path = require('path');
@@ -16,6 +18,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Point static path to dist
 app.use(express.static(path.join(__dirname, '../dist')));
 
+console.log('__dirname: ' + __dirname)
+
 // Set our api routes
 app.use('/api', api);
 
@@ -30,12 +34,13 @@ app.get('*', (req, res) => {
 const port = process.env.PORT || '3000';
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
-const server = http.createServer(app);
+console.log('port: ' + port)
+
+
 
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port, () => console.log(`API running on localhost:${port}`));
+app.listen(process.env.PORT, () => console.log(`API running on localhost:${port}`));
+
+console.log('------- end ------')
