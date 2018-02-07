@@ -1,0 +1,25 @@
+<div class="container">
+  <div *ngIf="isLoading" class="message">Loading...</div>
+  <div *ngIf="!isLoading">
+    <div *ngIf="queryItems.items.length == 0" class="message">No se encontraron resultados :(</div>
+    <div *ngFor="let item of queryItems.items" class="item">
+      <div class="item__picture">
+          <img src="{{item.picture}}" alt="item picture"/>
+      </div>
+      <div class="item__description">
+        <div class="item__description__price">
+          <span *ngIf="item.price.decimals">{{item.price.amount | currency:item.price.currency:'symbol-narrow'}}</span>
+          <span *ngIf="!item.price.decimals">{{item.price.amount | currency:item.price.currency:'symbol-narrow':'1.0-0'}}</span>
+          <span *ngIf="item.freeShipping"><img src="assets/images/ic_shipping.png" alt="envio gratis" /></span>
+        </div>
+        <a [routerLink]="['/items', item.id]">
+          {{item.title}}
+        </a>
+        <div *ngIf="item.condition == 'new'">Completo Único!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

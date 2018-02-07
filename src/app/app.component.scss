@@ -1,0 +1,14 @@
+@import '../styles/variables';
+@import '../styles/flex-box-grid-mixins';
+
+
+:host {
+    .categories {
+      font-size: 14px;
+      @include grid();
+      margin: $primarySpace 0;
+      .container {
+        margin: auto;
+      }
+    }
+}

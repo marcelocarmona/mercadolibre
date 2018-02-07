@@ -1,0 +1,47 @@
+@import '../../styles/variables';
+@import '../../styles/flex-box-grid-mixins';
+
+:host {
+  background: $yellow;
+  width: 100%;
+  display: flex;
+  @include grid();
+  justify-content: center;
+
+  .searcher {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+
+    &__logo {
+      margin-right: 10px;
+      height: 28px;
+      width: 39px
+    }
+
+    &__box {
+      width: 100%;
+
+      input[name=q] {
+        border-radius: $radius;
+        border: 0;
+        font-size: 14px;
+        font-weight: normal;
+        width: 100%;
+        padding: 6px 6px 6px 35px;
+        outline: none;
+      };
+
+      button {
+        position: absolute;
+        top: 0;
+        height: 55px;
+        width: 36px;
+        background: 0 0;
+        border: none;
+        line-height: 1em;
+        outline: none;
+      }
+    }
+  }
+}

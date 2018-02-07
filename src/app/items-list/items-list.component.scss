@@ -1,0 +1,48 @@
+@import '../../styles/variables';
+@import '../../styles/flex-box-grid-mixins';
+
+$imageSize: 90px; // The original size was 180px but we have pixels problems
+$imageContainer: 180px;
+
+:host {
+  display: block;
+  justify-content: center;
+  min-height: 100vh;
+  @include grid();
+
+  .container {
+    background-color: $white;
+    overflow: hidden;
+  }
+
+  .item {
+    padding: $primarySpace;
+    border-bottom: 1px solid $light-gray;
+    display: flex;
+
+    &__picture {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: $primarySpace;
+      min-height: $imageContainer;
+      min-width: $imageContainer;
+      border-radius: $radius;
+      border: 1px solid $light-gray;
+
+      img {
+        height: $imageSize;
+        width: $imageSize;
+      }
+    };
+
+    &__description {
+      &__price {
+        margin-bottom: $secundarySpace;
+        font-size: 1.5em;
+      }
+    }
+  }
+}
+
+

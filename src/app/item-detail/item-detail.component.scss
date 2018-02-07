@@ -1,0 +1,55 @@
+@import '../../styles/variables.scss';
+@import '../../styles/flex-box-grid-mixins';
+
+$imageSize: 680px;
+
+:host {
+  display: block;
+  justify-content: center;
+  min-height: 100vh;
+  @include grid();
+
+  .container {
+    background-color: $white;
+
+    .detail-section {
+      display: flex;
+      padding: $secundarySpace;
+
+      &__primary-column {
+        @include grid-col(9);
+
+        img {
+          max-width: $imageSize;
+        }
+      }
+
+      &__secundary-column {
+        @include grid-col(3);
+
+        &__state {
+          font-size: smaller;
+          padding-bottom: $primarySpace;
+        }
+
+        &__title {
+          font-weight: normal;
+          font-size: larger;
+        }
+
+        &__price {
+          padding: $secundarySpace 0;
+          font-size: xx-large;
+        }
+      }
+    }
+
+  }
+
+  @media screen and (max-width: $mediaMaxWith) {
+    .detail-section {
+      flex-flow: column
+    }
+  }
+
+}

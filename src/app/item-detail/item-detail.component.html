@@ -1,0 +1,18 @@
+<div class="container">
+  <div *ngIf="isLoading" class="message">Loading...</div>
+  <div *ngIf="!isLoading" class="detail-section">
+    <div class="detail-section__primary-column">
+      <img src="{{itemDetail.item.picture}}" alt="imagen del producto"/>
+      <h2>Descripción del producto</h2>
+      <span>{{itemDetail.item.description}}</span>
+    </div>
+    <div class="detail-section__secundary-column">
+        <div class="detail-section__secundary-column__state">
+            <span *ngIf="itemDetail.item.condition == 'new'">Nuevo -</span>{{itemDetail.item.soldQuantity}} vendidos
+        </div>
+        <div class="detail-section__secundary-column__title">{{itemDetail.item.title}}</div>
+        <div class="detail-section__secundary-column__price">{{itemDetail.item.price.amount | currency:itemDetail.item.price.currency:'symbol-narrow'}}</div>
+        <button class="btn--primary">Comprar</button>
+    </div>
+  </div>
+</div>
