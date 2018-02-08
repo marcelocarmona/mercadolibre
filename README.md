@@ -4,6 +4,9 @@ Online version [https://mi-mercadolibre.herokuapp.com](https://mi-mercadolibre.h
 
 ## Development server
 
+`git clone https://github.com/marcelocarmona/mercadolibre.git`
+`cd mercadolibre`
+`npm install`
 Run `npm run serve` for a dev server. Navigate to `http://localhost:4200/`.
 
 ## Build
